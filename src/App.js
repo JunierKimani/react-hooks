@@ -1,25 +1,44 @@
-import logo from './logo.svg';
-import './App.css';
 
-function App() {
+import React from "react";
+import DisplayItems from "./DisplayItems";
+import "./App.css";
+import Profileid from "./ProfileId";
+import Login from "./Login";
+//import MyComponent from "./MycomponentsRefactored";
+
+
+export default function App() {
+ 
+  const [isLoggedIn, setIsLoggedIn] = React.useState(true);
+ const [Checkout, setCheckout] = React.useState(true);
+
+  /*const MyComponent = () => {
+    if(isLoggedIn){
+      return <button>Logout</button>
+    }else{
+      return <button>Login</button>
+    }
+  }
+  */
+ 
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+
+    <section>
+    <div>
+      <div class="cond">
+     <h1>PROFILE</h1>
+      </div> 
+    {Checkout && <DisplayItems/>}
+    <br/>
+     {isLoggedIn  ? <Profileid/> : <Login/>}  
     </div>
+    
+    </section>
   );
 }
 
-export default App;
+
+
+
+
+ 
